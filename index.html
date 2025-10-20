@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cookie Clicker</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="img/cookie.png">
+</head>
+
+<body>
+    <main>
+        <div class="buttonTema">
+            <button id="tema">🌑</button>
+        </div>
+        <div class="cookie">
+            <img src="img/cookie.png" alt="cookie" id="imgCookie">
+        </div>
+    </main>
+    <aside>
+        <!-- div das informações do jogo -->
+        <div>
+            <button id="buttonInformacao">!</button>
+            <div class="informacoes" id="informacoes">
+                <div class="divX">
+                    <button id="x">X</button>
+                </div>
+                <h1>Como Jogar</h1>
+                <p>Basta clicar no cookie (biscoito) que aparece na sua tela
+                    para receber pontos!</p>
+            </div>
+        </div>
+        <!-- dinheiro atual -->
+        <div>
+            <h1>Dinheiro</h1>
+            <p id="dinheiro"></p>
+        </div>
+        <!-- habilidades compráveis -->
+        <div>
+            <button id="buttonHabilidade">Habilidades</button>
+            <div class="informacoes" id="habilidades">
+                <div class="divX">
+                    <button id="xHabilidade">X</button>
+                </div>
+                <h1>Habilidades</h1>
+                <div class="habilidade" id="habilidade2clicks">
+                    <img src="img/cookie.png" alt="+2 clicks">
+                    <p>Aumentar dois clicks</p>
+                    <p>R$ 30,00</p>
+                </div>
+            </div>
+        </div>
+        <!-- div da pontuação atual -->
+        <div>
+            <h1>Pontuação</h1>
+            <p id="pontuacao"></p>
+        </div>
+        <!-- div das conquistas do jogo -->
+        <div>
+            <button id="buttonConquista">Conquistas</button>
+            <div class="informacoes" id="conquistas">
+                <div class="divX">
+                    <button id="xConquista">X</button>
+                </div>
+                <h1>Suas conquistas: </h1>
+                <div class="conquista" id="conquista100Clicks">
+                    <img src="img/cookie.png" alt="100 clicks">
+                    <p>100 clicks</p>
+                </div>
+            </div>
+        </div>
+    </aside>
+    <footer>Feito por Lucas</footer>
+    <script src="js/script.js"></script>
+    <script src="js/temas.js"></script>
+</body>
+
+</html>

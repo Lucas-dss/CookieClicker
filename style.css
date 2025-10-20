@@ -1,0 +1,270 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    padding: 10px;
+    height: 700px;
+    background-color: #b6b6b6;
+    min-width: 270px;
+    transition: background-color 0.5s ease-in-out;
+}
+
+button {
+    cursor: pointer;
+}
+
+.buttonTema {
+    width: 100%;
+    height: 10%;
+    background-color: #0000005d;
+}
+
+.buttonTema button {
+    background-color: rgba(255, 255, 255, 0.5);
+    width: 50px;
+    height: 50px;
+    margin: 10px;
+    border: 2px solid #0000002f;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* #region dark mode */
+.dark-mode {
+    background-color: #000000;
+    color: #ffffff;
+}
+
+.dark-icon {
+    rotate: 360deg;
+}
+
+.dark-sectionBefore::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(16, 24, 32, 0.7);
+    /* Preto com 50% de opacidade */
+    box-shadow: inset 0 0 10px 10px #000000;
+    z-index: -1;
+    /* Coloca o pseudo-elemento por baixo */
+    transition: all 0.5s ease-in-out;
+}
+
+/* #endregion */
+
+main {
+    background-image: url('https://media.giphy.com/media/k754IRFqfiMi4/giphy.gif');
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    /* Necessário para posicionar o pseudo-elemento */
+    position: relative;
+    /* Para garantir que o conteúdo fique acima da imagem */
+    z-index: 1;
+}
+
+main::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #b6b6b6b3;
+    box-shadow: inset 0 0 10px 10px #b6b6b6;
+    z-index: -1;
+    /* Coloca o pseudo-elemento por baixo */
+    transition: all 0.5s ease-in-out;
+}
+
+main .cookie {
+    width: 100%;
+    height: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+main img {
+    cursor: pointer;
+    width: 200px;
+    border-radius: 100%;
+    box-shadow: inset 0 0 10px 10px #00000010;
+    animation: imgCookieGirando 1s infinite;
+    transition: all 0.05s ease-in-out;
+}
+
+main img:active {
+    width: 250px;
+    transition: all 0.1s ease-in-out;
+}
+
+@keyframes imgCookieGirando {
+    0% {
+        rotate: 0deg;
+    }
+
+    100% {
+        rotate: 360deg;
+    }
+}
+
+aside {
+    position: fixed;
+    right: -33%;
+    top: 0;
+    bottom: 0;
+    background-color: rgba(128, 128, 128, 0.5);
+    width: 30%;
+    height: 100%;
+    max-height: 700px;
+    padding: 0 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    /* Para garantir que o conteúdo fique acima da imagem */
+    z-index: 2;
+    transition: all 1s ease-in-out;
+}
+
+aside:hover{
+    right: 0;
+    transition: all 1s ease-in-out;
+}
+
+aside #buttonInformacao,
+aside #buttonHabilidade,
+aside #buttonConquista {
+    background-color: rgba(255, 255, 255, 0.5);
+    height: 100px;
+    margin: 10px;
+    padding: 10px;
+    border: 2px solid #0000002f;
+    border-radius: 10px;
+    font-size: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+aside #buttonInformacao {
+    background-color: rgba(255, 255, 255, 0.5);
+    width: 50px;
+    height: 50px;
+    margin: 10px;
+    border: 2px solid #0000002f;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+aside .informacoes {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(255, 255, 255, 0.25);
+    width: 30%;
+    min-width: 100px;
+    max-height: 700px;
+    margin: 10px;
+    padding: 10px;
+    font-size: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: none;
+    backdrop-filter: blur(4px);
+    transition: all 1s ease-in-out;
+}
+
+h1{
+    text-align: center;
+}
+
+aside .informacoes h1 {
+    margin: 0 0 20px 0;
+    font-size: 60%;
+    text-align: left;
+}
+
+aside .informacoes p {
+    font-size: 40%;
+}
+
+aside .informacoes .divX {
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    text-align: center;
+}
+
+aside .informacoes .divX #x,
+aside .informacoes .divX #xHabilidade,
+aside .informacoes .divX #xConquista {
+    background-color: rgba(255, 255, 255, 0.5);
+    width: 50px;
+    height: 50px;
+    margin: 10px;
+    border: 2px solid #0000002f;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+aside .informacoes .conquista,
+aside .informacoes .habilidade {
+    cursor: pointer;
+    display: flex;
+    filter: blur(7px);
+    justify-content: space-around;
+    align-items: center;
+    border: 2px solid #0000002f;
+}
+
+aside .informacoes .conquista img,
+aside .informacoes .habilidade img {
+    filter: saturate(0);
+    width: 50px;
+    height: auto;
+}
+
+aside .informacoes .conquista p,
+aside .informacoes .habilidade p {
+    height: auto;
+    font-size: 30px;
+}
+
+aside #dinheiro, aside #pontuacao {
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
+    font-size: 40px;
+    height: 100px;
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
