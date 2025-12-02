@@ -1,4 +1,4 @@
-const buttonConfig = document.getElementById("buttonConfig");
+const buttonConfig = document.getElementById('buttonConfig');
 const configuracoes = document.getElementById('configuracoes');
 const x = document.getElementById('xConfig');
 

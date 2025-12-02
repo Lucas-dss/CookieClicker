@@ -103,13 +103,13 @@ buttonConquista.addEventListener("click", function () {
 xConquista.addEventListener("click", () => conquistas.style.display = 'none');
 // ================== lista das conquistas ==================
 const conquista100Clicks = document.getElementById('conquista100Clicks');
-const conquistaImg = document.querySelector('.conquista img');
+const conquistaImg = document.querySelectorAll('.conquista img');
 
 let conquista100ClicksConquistada = false;
 
 function consquista100Clicks() {
     conquista100Clicks.style.filter = 'blur(0)';
-    conquistaImg.style.filter = 'saturate(1)';
+    conquistaImg.item(0).style.filter = 'saturate(1)';
     conquista100ClicksConquistada = true;
 }
 
@@ -119,7 +119,7 @@ let conquista1000ClicksConquistada = false;
 
 function consquista1000Clicks() {
     conquista1000Clicks.style.filter = 'blur(0)';
-    conquistaImg.style.filter = 'saturate(1)';
+    conquistaImg.item(1).style.filter = 'saturate(1)';
     conquista1000ClicksConquistada = true;
 };
 
@@ -150,7 +150,7 @@ imgCookie.addEventListener("click", function () {
     if (!conquista1000ClicksConquistada) {
         if (pontuacaoAtual >= 1000) {
             window.alert("você clicou 1000 vezes");
-            conquista1000Clicks();
+            consquista1000Clicks();
         }
     }
     if (clicks2Ativo == true) {
@@ -180,9 +180,10 @@ function compra() {
 
 const form = document.querySelector('form');
 form.addEventListener('submit', function (event) {
-    var inputValue = document.getElementById('codigo').value;
-    if (inputValue == "gabriela") {
-        window.alert("te amo.");
-    };
     event.preventDefault();
+    const inputCodigo = document.getElementById('codigo');
+    const inputValue = inputCodigo ? inputCodigo.value.toLowerCase() : '';
+    if (inputValue === "gabriela") {
+        window.alert("te amo ❤");
+    }
 });
