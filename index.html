@@ -11,26 +11,33 @@
 
 <body>
     <main>
-        <div class="buttonTema">
-            <button id="tema">🌑</button>
-            <button id="buttonConfig">⚙</button>
-            <div class="informacoes" id="configuracoes">
-                <div class="divX">
-                    <button id="xConfig">X</button>
+        <header>
+            <div class="buttonTema">
+                <button id="tema">🌑</button>
+                <button id="buttonConfig">⚙</button>
+                <div class="informacoes" id="configuracoes">
+                    <div class="divX">
+                        <button id="xConfig">X</button>
+                    </div>
+                    <h1>configurações</h1>
+                    <p>Música</p>
+                    <input type="range" max="100">
                 </div>
-                <h1>configurações</h1>
-                <p>Música</p>
-                <input type="range" max="100">
             </div>
-        </div>
+            <button id="abrirInfo">+</button>
+        </header>
         <div class="cookie">
             <img src="img/cookie.png" alt="cookie" id="imgCookie">
         </div>
+        <p id="click">Número de Click: 1</p>
     </main>
     <aside>
         <!-- div das informações do jogo -->
         <div>
-            <button id="buttonInformacao">!</button>
+            <div class="buttonsInfo">
+                <button id="buttonInformacao">!</button>
+                <button id="fecharInfo">X</button>
+            </div>
             <div class="informacoes" id="informacoes">
                 <div class="divX">
                     <button id="x">X</button>
@@ -87,6 +94,15 @@
                     <p>1000 clicks</p>
                 </div>
             </div>
+        </div>
+        <div>
+            <form action="">
+                <div class="codigo">
+                    <label for="codigo">Inserir Código:</label>
+                    <input type="text" id="codigo" required>
+                </div>
+                <button type="submit">Enviar</button>
+            </form>
         </div>
     </aside>
     <footer>Feito por Lucas</footer>

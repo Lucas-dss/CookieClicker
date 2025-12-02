@@ -1,7 +1,7 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: 0;
+    box-sizing: border-box;
 }
 
 html {
@@ -20,14 +20,21 @@ button {
     cursor: pointer;
 }
 
-.buttonTema {
+header {
     width: 100%;
     height: 10%;
     background-color: #0000005d;
     display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.buttonTema button {
+.buttonTema {
+    display: flex;
+}
+
+.buttonTema button,
+#abrirInfo {
     background-color: rgba(255, 255, 255, 0.5);
     width: 50px;
     height: 50px;
@@ -130,27 +137,34 @@ main img:active {
 
 aside {
     position: fixed;
+    left: 70%;
     right: 0;
     top: 0;
     bottom: 0;
     background-color: rgba(128, 128, 128, 0.5);
-    width: 20%;
-    height: 100%;
     max-height: 700px;
-    padding: 0 30px;
-    display: flex;
+    padding: 10px 30px;
+    display: none;
     flex-direction: column;
-    justify-content: center;
     align-items: flex-start;
     /* Para garantir que o conteúdo fique acima da imagem */
     z-index: 2;
+    overflow-y: scroll;
+}
+
+.buttonsInfo {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
 }
 
 aside #buttonInformacao,
 aside #buttonHabilidade,
-aside #buttonConquista {
+aside #buttonConquista,
+#fecharInfo {
     background-color: rgba(255, 255, 255, 0.5);
     height: 100px;
+    width: 100%;
     margin: 10px;
     padding: 10px;
     border: 2px solid #0000002f;
@@ -164,15 +178,17 @@ aside #buttonConquista {
 
 aside #buttonInformacao:hover,
 aside #buttonHabilidade:hover,
-aside #buttonConquista:hover {
+aside #buttonConquista:hover,
+#fecharInfo:hover {
     background-color: rgba(255, 255, 255, 0.6);
-    width: 280px;
+    width: 90%;
     height: 120px;
     font-size: 45px;
 }
 
 aside #buttonInformacao,
-#buttonConfig {
+#buttonConfig,
+#fecharInfo {
     width: 50px;
     height: 50px;
     border-radius: 50%;
@@ -183,7 +199,8 @@ aside #buttonInformacao,
     align-items: center;
 }
 
-aside #buttonInformacao:hover{
+aside #buttonInformacao:hover,
+#fecharInfo:hover {
     background-color: rgba(255, 255, 255, 0.6);
     width: 60px;
     height: 60px;
@@ -280,4 +297,56 @@ aside #pontuacao {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.codigo {
+    display: flex;
+    flex-direction: column;
+    margin: 10px 0;
+}
+
+input {
+    border: none;
+    border-radius: 10px;
+    height: 20px;
+    margin: 10px 0;
+    padding: 0 10px;
+}
+
+form button{
+    background-color: rgba(255, 255, 255, 0.5);
+    height: 20px;
+    width: 100%;
+    margin: 10px;
+    padding: 10px;
+    border: 2px solid #0000002f;
+    border-radius: 10px;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.2s ease-in-out;
+}
+
+@media screen and (max-width: 600px) {
+    aside {
+        left: 0;
+        align-items: stretch;
+        background-color: rgba(83, 83, 83, 0.8);
+    }
+
+    .informacoes {
+        width: 90%;
+    }
+
+    aside #buttonInformacao:hover,
+    aside #buttonHabilidade:hover,
+    aside #buttonConquista:hover,
+    #fecharInfo:hover {
+        font-size: 30px;
+    }
+
+    aside .informacoes .habilidade p {
+        font-size: 20px;
+    }
 }

@@ -1,4 +1,15 @@
-// informação
+const buttonAbrirInformacoes = document.getElementById('abrirInfo');
+const buttonFecharInformacoes = document.getElementById('fecharInfo');
+const aside = document.querySelector('aside');
+
+buttonAbrirInformacoes.addEventListener("click", () => {
+    aside.style.display = 'flex';
+});
+buttonFecharInformacoes.addEventListener("click", () => {
+    aside.style.display = 'none';
+});
+
+// ================== informação ==================
 const buttonInformacao = document.getElementById('buttonInformacao');
 const informacoes = document.getElementById('informacoes');
 const x = document.getElementById('x');
@@ -8,11 +19,10 @@ buttonInformacao.addEventListener("click", function () {
     habilidades.style.display = 'none';
     conquistas.style.display = 'none';
 });
-x.addEventListener("click", function () {
-    informacoes.style.display = 'none';
-});
 
-// habilidade
+x.addEventListener("click", () => informacoes.style.display = 'none');
+
+// ================== habilidade ==================
 const buttonHabilidade = document.getElementById('buttonHabilidade');
 const habilidades = document.getElementById('habilidades');
 const xHabilidade = document.getElementById('xHabilidade');
@@ -22,10 +32,10 @@ buttonHabilidade.addEventListener("click", function () {
     informacoes.style.display = 'none';
     conquistas.style.display = 'none';
 });
-xHabilidade.addEventListener("click", function () {
-    habilidades.style.display = 'none';
-});
-// lista das habilidades
+
+xHabilidade.addEventListener("click", () => habilidades.style.display = 'none');
+
+// ================== lista das habilidades ==================
 const habilidade2clicks = document.getElementById('habilidade2clicks');
 const habilidadesImgs = document.querySelectorAll('.habilidade img');
 habilidade2clicks.style.filter = 'blur(0)';
@@ -50,6 +60,9 @@ habilidade2clicks.addEventListener("click", function () {
 
 function clicks2() {
     soma = 1;
+    localStorage.setItem("click", soma + 1);
+    clicksAtual = parseInt(localStorage.getItem("click")) || "Erro";
+    click.textContent = `Número de Click: ${clicksAtual}`;
 };
 
 const habilidade3clicks = document.getElementById('habilidade3clicks');
@@ -72,9 +85,12 @@ habilidade3clicks.addEventListener("click", function () {
 
 function clicks3() {
     soma = 2;
+    localStorage.setItem("click", soma + 1);
+    clicksAtual = parseInt(localStorage.getItem("click")) || "Erro";
+    click.textContent = `Número de Click: ${clicksAtual}`;
 };
 
-// conquista
+// ================== conquista ==================
 const buttonConquista = document.getElementById('buttonConquista');
 const conquistas = document.getElementById('conquistas');
 const xConquista = document.getElementById('xConquista');
@@ -84,10 +100,8 @@ buttonConquista.addEventListener("click", function () {
     informacoes.style.display = 'none';
     habilidades.style.display = 'none';
 });
-xConquista.addEventListener("click", function () {
-    conquistas.style.display = 'none';
-});
-// lista das conquistas
+xConquista.addEventListener("click", () => conquistas.style.display = 'none');
+// ================== lista das conquistas ==================
 const conquista100Clicks = document.getElementById('conquista100Clicks');
 const conquistaImg = document.querySelector('.conquista img');
 
@@ -107,9 +121,9 @@ function consquista1000Clicks() {
     conquista1000Clicks.style.filter = 'blur(0)';
     conquistaImg.style.filter = 'saturate(1)';
     conquista1000ClicksConquistada = true;
-}
+};
 
-// pontuacao
+// ================== pontuacao ==================
 const imgCookie = document.getElementById('imgCookie');
 const divPontuacao = document.getElementById('pontuacao');
 let pontuacaoAtual = 0;
@@ -119,6 +133,10 @@ let dinheiroAtual = 0;
 let precoDaHabilidade = 0;
 let soma = 0;
 let multiplicador = 1;
+
+const click = document.getElementById("click");
+localStorage.setItem("click", soma + 1);
+let clicksAtual;
 
 imgCookie.addEventListener("click", function () {
     pontuacao();
@@ -148,14 +166,23 @@ function pontuacao() {
     pontuacaoAtual += soma;
     pontuacaoAtual *= multiplicador;
     divPontuacao.textContent = pontuacaoAtual;
-}
+};
 
 function dinheiro() {
     dinheiroAtual += 3;
     divDinheiro.textContent = dinheiroAtual;
-}
+};
 
 function compra() {
     dinheiroAtual -= precoDaHabilidade;
     divDinheiro.textContent = dinheiroAtual;
-}
+};
+
+const form = document.querySelector('form');
+form.addEventListener('submit', function (event) {
+    var inputValue = document.getElementById('codigo').value;
+    if (inputValue == "gabriela") {
+        window.alert("te amo.");
+    };
+    event.preventDefault();
+});
