@@ -12,6 +12,7 @@ else if (tema.includes("escuro")) {
 };
 
 buttonTema.addEventListener("click", function () {
+    buttonTema.style.transition = 'all 0.75s ease-in-out';
     // Atualiza o valor de tema antes de verificar
     tema = localStorage.getItem("tema");
 
