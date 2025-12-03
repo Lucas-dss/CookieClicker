@@ -350,11 +350,15 @@ form button {
 
     .abrindoAside {
         left: 0;
-        transition: all 1s ease-in-out;
     }
 
     .informacoes {
-        width: 90%;
+        left: -150%;
+        width: 100%;
+    }
+
+    .abrindoInformacoes{
+        left: -4%;
     }
 
     aside #buttonInformacao:hover,
