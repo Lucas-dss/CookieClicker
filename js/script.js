@@ -1,13 +1,14 @@
+// ================== aside ==================
 const buttonAbrirInformacoes = document.getElementById('abrirInfo');
 const buttonFecharInformacoes = document.getElementById('fecharInfo');
 const aside = document.querySelector('aside');
 
-buttonAbrirInformacoes.addEventListener("click", () => {
-    aside.style.display = 'flex';
-});
-buttonFecharInformacoes.addEventListener("click", () => {
-    aside.style.display = 'none';
-});
+buttonAbrirInformacoes.addEventListener("click", () => aside.classList.add("abrindoAside"));
+
+buttonFecharInformacoes.addEventListener("click", () => aside.classList.remove("abrindoAside"));
+
+// booleana para impedir que abra diversas infos mais de uma vez só
+let informacaoAberta = false;
 
 // ================== informação ==================
 const buttonInformacao = document.getElementById('buttonInformacao');
@@ -15,12 +16,17 @@ const informacoes = document.getElementById('informacoes');
 const x = document.getElementById('x');
 
 buttonInformacao.addEventListener("click", function () {
-    informacoes.style.display = 'block';
-    habilidades.style.display = 'none';
-    conquistas.style.display = 'none';
+    if (!informacaoAberta) {
+        informacoes.style.display = 'block';
+        informacoes.classList.add("abrindoInformacoes");
+        informacaoAberta = true;
+    }
 });
 
-x.addEventListener("click", () => informacoes.style.display = 'none');
+x.addEventListener("click", () => {
+    informacoes.classList.remove("abrindoInformacoes");
+    informacaoAberta = false;
+});
 
 // ================== habilidade ==================
 const buttonHabilidade = document.getElementById('buttonHabilidade');
@@ -28,17 +34,23 @@ const habilidades = document.getElementById('habilidades');
 const xHabilidade = document.getElementById('xHabilidade');
 
 buttonHabilidade.addEventListener("click", function () {
-    habilidades.style.display = 'block';
-    informacoes.style.display = 'none';
-    conquistas.style.display = 'none';
+    if (!informacaoAberta) {
+        habilidades.style.display = 'block';
+        habilidades.classList.add("abrindoInformacoes");
+        informacaoAberta = true;
+    }
 });
 
-xHabilidade.addEventListener("click", () => habilidades.style.display = 'none');
+xHabilidade.addEventListener("click", () => {
+    habilidades.classList.remove("abrindoInformacoes");
+    informacaoAberta = false;
+});
 
 // ================== lista das habilidades ==================
 const habilidade2clicks = document.getElementById('habilidade2clicks');
 const habilidadesImgs = document.querySelectorAll('.habilidade img');
 habilidade2clicks.style.filter = 'blur(0)';
+
 habilidadesImgs.forEach(habilidadeImg => {
     habilidadeImg.style.filter = 'saturate(1)';
 })
@@ -62,7 +74,7 @@ function clicks2() {
     soma = 1;
     localStorage.setItem("click", soma + 1);
     clicksAtual = parseInt(localStorage.getItem("click")) || "Erro";
-    click.textContent = `Número de Click: ${clicksAtual}`;
+    click.textContent = clicksAtual;
 };
 
 const habilidade3clicks = document.getElementById('habilidade3clicks');
@@ -87,7 +99,7 @@ function clicks3() {
     soma = 2;
     localStorage.setItem("click", soma + 1);
     clicksAtual = parseInt(localStorage.getItem("click")) || "Erro";
-    click.textContent = `Número de Click: ${clicksAtual}`;
+    click.textContent = clicksAtual;
 };
 
 // ================== conquista ==================
@@ -96,11 +108,18 @@ const conquistas = document.getElementById('conquistas');
 const xConquista = document.getElementById('xConquista');
 
 buttonConquista.addEventListener("click", function () {
-    conquistas.style.display = 'block';
-    informacoes.style.display = 'none';
-    habilidades.style.display = 'none';
+    if (!informacaoAberta) {
+        conquistas.style.display = 'block';
+        conquistas.classList.add("abrindoInformacoes");
+        informacaoAberta = true;
+    }
 });
-xConquista.addEventListener("click", () => conquistas.style.display = 'none');
+
+xConquista.addEventListener("click", () => {
+    conquistas.classList.remove("abrindoInformacoes");
+    informacaoAberta = false;
+});
+
 // ================== lista das conquistas ==================
 const conquista100Clicks = document.getElementById('conquista100Clicks');
 const conquistaImg = document.querySelectorAll('.conquista img');
@@ -178,6 +197,7 @@ function compra() {
     divDinheiro.textContent = dinheiroAtual;
 };
 
+// ================== código ==================
 const form = document.querySelector('form');
 form.addEventListener('submit', function (event) {
     event.preventDefault();
