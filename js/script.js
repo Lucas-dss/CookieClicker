@@ -140,7 +140,42 @@ function consquista1000Clicks() {
     conquista1000Clicks.style.filter = 'blur(0)';
     conquistaImg.item(1).style.filter = 'saturate(1)';
     conquista1000ClicksConquistada = true;
-};
+}
+
+const conquistaDoceCoco = document.getElementById('conquistaDoceCoco');
+
+let conquistaDoceCocoConquistada = false;
+
+function consquistaDoceCoco() {
+    conquistaDoceCoco.style.filter = 'blur(0)';
+    conquistaImg.item(2).style.filter = 'saturate(1)';
+    conquistaDoceCocoConquistada = true;
+}
+
+const conquistaSemPoderes = document.getElementById('conquistaSemPoderes');
+
+let conquistaSemPoderesConquistada = false;
+
+function consquistaSemPoderes() {
+    conquistaSemPoderes.style.filter = 'blur(0)';
+    conquistaImg.item(3).style.filter = 'saturate(1)';
+    conquistaSemPoderesConquistada = true;
+}
+
+// ================== código ==================
+const form = document.querySelector('form');
+form.addEventListener('submit', function (event) {
+    event.preventDefault();
+    const inputCodigo = document.getElementById('codigo');
+    const inputValue = inputCodigo ? inputCodigo.value.toLowerCase() : '';
+    if (inputValue === "gabriela") {
+        //window.alert("te amo ❤");
+        if (!conquistaDoceCocoConquistada) {
+            window.alert("Conquista desbloqueada:\n Doce como uma rosquinha de coco.");
+            consquistaDoceCoco();
+        }
+    }
+});
 
 // ================== pontuacao ==================
 const imgCookie = document.getElementById('imgCookie');
@@ -157,34 +192,60 @@ const click = document.getElementById("click");
 localStorage.setItem("click", soma + 1);
 let clicksAtual;
 
+// evento de clicar no cookie
 imgCookie.addEventListener("click", function () {
     pontuacao();
     dinheiro();
     if (!conquista100ClicksConquistada) {
         if (pontuacaoAtual >= 100) {
-            window.alert("você clicou 100 vezes");
+            window.alert("Conquista desbloqueada:\n Só demorou um tempinho não é?");
+            consquista100Clicks();
+        }
+        if (maiorPontuacaoAtual >= 100) {
             consquista100Clicks();
         }
     }
     if (!conquista1000ClicksConquistada) {
         if (pontuacaoAtual >= 1000) {
-            window.alert("você clicou 1000 vezes");
+            window.alert("Conquista desbloqueada:\n Ufa, finalmente!");
+            consquista1000Clicks();
+        }
+        if (maiorPontuacaoAtual >= 1000) {
             consquista1000Clicks();
         }
     }
+    // habilidade 2 pontos / click
     if (clicks2Ativo == true) {
         clicks2();
     }
+    // habilidade 3 pontos / click
     if (clicks3Ativo == true) {
         clicks3();
     }
+    // verificação da conquista Sem Poderes
+    if (!clicks2Ativo && !clicks3Ativo && conquista1000ClicksConquistada) {
+        window.alert("Conquista desbloqueada:\n O que deu em você?");
+        consquistaSemPoderes();
+    }
 });
+
+const maiorPontuacao = document.getElementById("maiorPontuacao");
+let maiorPontuacaoAtual = parseInt(localStorage.getItem("pontuacaoMaxima")) || 0;
+maiorPontuacao.textContent = maiorPontuacaoAtual;
 
 function pontuacao() {
     pontuacaoAtual++;
-    pontuacaoAtual += soma;
-    pontuacaoAtual *= multiplicador;
+    pontuacaoAtual += soma; // 0
+    pontuacaoAtual *= multiplicador; // 1
     divPontuacao.textContent = pontuacaoAtual;
+    // ========= pontuação máxima atual =========
+    // verificação se caso a pontuação atual superar a máxima
+    if (pontuacaoAtual >= maiorPontuacaoAtual) {
+        // ela atualiza a pontuação máxima
+        localStorage.setItem("pontuacaoMaxima", pontuacaoAtual);
+        maiorPontuacaoAtual = parseInt(localStorage.getItem("pontuacaoMaxima")) || "Erro";
+        maiorPontuacao.textContent = maiorPontuacaoAtual;
+    }
 };
 
 function dinheiro() {
@@ -197,13 +258,15 @@ function compra() {
     divDinheiro.textContent = dinheiroAtual;
 };
 
-// ================== código ==================
-const form = document.querySelector('form');
-form.addEventListener('submit', function (event) {
-    event.preventDefault();
-    const inputCodigo = document.getElementById('codigo');
-    const inputValue = inputCodigo ? inputCodigo.value.toLowerCase() : '';
-    if (inputValue === "gabriela") {
-        window.alert("te amo ❤");
+// ================== configurações ==================
+buttonConfig.addEventListener("click", function () {
+    if (!informacaoAberta) {
+        configuracoes.style.display = 'block';
+        configuracoes.classList.add("abrindoInformacoes");
+        informacaoAberta = true;
     }
+});
+xConfig.addEventListener("click", function () {
+    configuracoes.classList.remove("abrindoInformacoes");
+    informacaoAberta = false;
 });

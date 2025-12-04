@@ -19,9 +19,12 @@
                     <div class="divX">
                         <button id="xConfig">X</button>
                     </div>
-                    <h1>configurações</h1>
+                    <h1>Configurações</h1>
                     <p>Música</p>
-                    <input type="range" max="100">
+                    <input type="range" id="inputRange" min="0" max="100" value="50">
+                    <span id="porcentagemMusica">50%</span>
+                    <p>Plano de Fundo</p>
+                    <input type="file" id="inputBackground">
                 </div>
             </div>
             <button id="abrirInfo">+</button>
@@ -29,6 +32,7 @@
         <div class="cookie">
             <img src="img/cookie.png" alt="cookie" id="imgCookie">
         </div>
+        <p>Maior pontuação feita: <span id="maiorPontuacao">0</span> Ponto(s)</p>
         <p>A cada um Click, ganha <span id="click">1</span> Ponto(s)</p>
     </main>
     <aside>
@@ -62,13 +66,17 @@
                 <h1>Habilidades</h1>
                 <div class="habilidade" id="habilidade2clicks">
                     <img src="img/cookie.png" alt="+2 clicks">
-                    <p>Aumentar DOIS clicks</p>
-                    <p>R$ 60,00</p>
+                    <div class="habilidade-descricao">
+                        <h1>2 pontos por click -</h1>
+                        <p>R$ 60,00</p>
+                    </div>
                 </div>
                 <div class="habilidade" id="habilidade3clicks">
                     <img src="img/cookie.png" alt="+3 clicks">
-                    <p>Aumentar TRÊS clicks</p>
-                    <p>R$ 180,00</p>
+                    <div class="habilidade-descricao">
+                        <h1>3 pontos por click -</h1>
+                        <p>R$ 180,00</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -86,12 +94,32 @@
                 </div>
                 <h1>Suas conquistas: </h1>
                 <div class="conquista" id="conquista100Clicks">
-                    <img src="img/cookie.png" alt="100 clicks">
-                    <p>100 clicks</p>
+                    <img src="img/cookie.png" alt="100 pontos">
+                    <div class="conquista-descricao">
+                        <h1>Só demorou um tempinho não é?</h1>
+                        <p>Obtenha 100 pontos.</p>
+                    </div>
                 </div>
                 <div class="conquista" id="conquista1000Clicks">
-                    <img src="img/cookie.png" alt="1000 clicks">
-                    <p>1000 clicks</p>
+                    <img src="img/cookie.png" alt="1000 pontos">
+                    <div class="conquista-descricao">
+                        <h1>Ufa, finalmente!</h1>
+                        <p>Obtenha 1000 pontos.</p>
+                    </div>
+                </div>
+                <div class="conquista" id="conquistaDoceCoco">
+                    <img src="img/codigo.png" alt="cadeado desbloqueado">
+                    <div class="conquista-descricao">
+                        <h1>Doce como uma rosquinha de coco</h1>
+                        <p>Utilize o código 'gabriela'.</p>
+                    </div>
+                </div>
+                <div class="conquista" id="conquistaSemPoderes">
+                    <img src="img/forte.png" alt="força">
+                    <div class="conquista-descricao">
+                        <h1>O que deu em você?</h1>
+                        <p>Conclua o jogo sem utilizar habilidades.</p>
+                    </div>
                 </div>
             </div>
         </div>

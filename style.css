@@ -246,7 +246,7 @@ h1 {
 
 .informacoes h1 {
     margin: 0 0 20px 0;
-    font-size: 60%;
+    font-size: 30px;
     text-align: left;
 }
 
@@ -261,10 +261,10 @@ h1 {
     text-align: center;
 }
 
+.informacoes .divX #xConfig,
 aside .informacoes .divX #x,
 aside .informacoes .divX #xHabilidade,
-aside .informacoes .divX #xConquista,
-.informacoes .divX #xConfig {
+aside .informacoes .divX #xConquista {
     background-color: rgba(255, 255, 255, 0.5);
     width: 50px;
     height: 50px;
@@ -283,7 +283,6 @@ aside .informacoes .habilidade {
     cursor: pointer;
     display: flex;
     filter: blur(7px);
-    justify-content: space-around;
     align-items: center;
     border: 2px solid #0000002f;
 }
@@ -295,10 +294,36 @@ aside .informacoes .habilidade img {
     height: auto;
 }
 
-aside .informacoes .conquista p,
+.conquista-descricao {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    margin-left: 10px;
+}
+
+.conquista-descricao h1,
+.habilidade-descricao h1 {
+    margin: 0;
+    font-size: 24px;
+}
+
+aside .informacoes .conquista p {
+    height: auto;
+    font-size: 20px;
+    color: #cfcfcf;
+}
+
+.habilidade-descricao {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-left: 10px;
+}
+
 aside .informacoes .habilidade p {
     height: auto;
-    font-size: 30px;
+    font-size: 20px;
 }
 
 aside #dinheiro,
@@ -357,7 +382,7 @@ form button {
         width: 100%;
     }
 
-    .abrindoInformacoes{
+    .abrindoInformacoes {
         left: -4%;
     }
 
