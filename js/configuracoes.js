@@ -14,11 +14,12 @@ xConfig.addEventListener("click", function () {
 const inputRange = document.getElementById('inputRange');
 let inputRangeValue;
 const porcentagemMusica = document.getElementById('porcentagemMusica');
-const musicaAtual = new Audio('../music/sevenos.mp3');
+const musicaAtual = new Audio('./music/sevenos.mp3');
+musicaAtual.currentTime = 0;
 musicaAtual.volume = 0.1;
 musicaAtual.play();
-const somClique = new Audio('../music/click.mp3');
-const subindoNivel = new Audio('../music/subindoNivel.mp3');
+const somClique = new Audio('./music/click.mp3');
+const subindoNivel = new Audio('./music/subindoNivel.mp3');
 
 inputRange.addEventListener('input', function () {
     inputRangeValue = inputRange.value;
