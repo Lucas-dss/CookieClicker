@@ -10,25 +10,34 @@
 </head>
 
 <body>
-    <main>
-        <header>
-            <div class="buttonTema">
-                <button id="tema">🌑</button>
-                <button id="buttonConfig">⚙</button>
-                <div class="informacoes" id="configuracoes">
-                    <div class="divX">
-                        <button id="xConfig">X</button>
-                    </div>
-                    <h1>Configurações</h1>
-                    <p>Música</p>
-                    <input type="range" id="inputRange" min="0" max="100" value="50">
-                    <span id="porcentagemMusica">50%</span>
-                    <p>Plano de Fundo</p>
+    <header>
+        <div class="buttonTema">
+            <button id="tema">🌑</button>
+            <button id="buttonConfig">⚙</button>
+            <div class="informacoes" id="configuracoes">
+                <div class="divX">
+                    <button id="xConfig">X</button>
+                </div>
+                <h1>Configurações</h1>
+                <div class="configuracoes-descricao">
+                    <h1>Música</h1>
+                    <input type="range" id="inputRange" min="0" max="100" value="10">
+                    <span id="porcentagemMusica">10%</span>
+                </div>
+                <div class="configuracoes-descricao">
+                    <h1>Plano de Fundo</h1>
                     <input type="file" id="inputBackground">
+                    <p>Clique para Upload</p>
+                </div>
+                <div class="configuracoes-descricao">
+                    <h1>Reiniciar jogo</h1>
+                    <button id="reiniciar">Apagar dados</button>
                 </div>
             </div>
-            <button id="abrirInfo">+</button>
-        </header>
+        </div>
+        <button id="abrirInfo">+</button>
+    </header>
+    <main>
         <div class="cookie">
             <img src="img/cookie.png" alt="cookie" id="imgCookie">
         </div>
@@ -126,10 +135,10 @@
         <div>
             <form action="">
                 <div class="codigo">
-                    <label for="codigo">Inserir Código:</label>
-                    <input type="text" id="codigo" required>
+                    <label for="codigo">Resgatar um código:</label>
+                    <input type="text" id="codigo" placeholder="Insere o código" required>
                 </div>
-                <button type="submit">Enviar</button>
+                <button type="submit">Confirmar</button>
             </form>
         </div>
     </aside>

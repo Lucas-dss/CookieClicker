@@ -171,6 +171,8 @@ form.addEventListener('submit', function (event) {
     if (inputValue === "gabriela") {
         //window.alert("te amo ❤");
         if (!conquistaDoceCocoConquistada) {
+            subindoNivel.currentTime = 0;
+            subindoNivel.play();
             window.alert("Conquista desbloqueada:\n Doce como uma rosquinha de coco.");
             consquistaDoceCoco();
         }
@@ -194,10 +196,14 @@ let clicksAtual;
 
 // evento de clicar no cookie
 imgCookie.addEventListener("click", function () {
+    somClique.currentTime = 0;
+    somClique.play();
     pontuacao();
     dinheiro();
     if (!conquista100ClicksConquistada) {
         if (pontuacaoAtual >= 100) {
+            subindoNivel.currentTime = 0;
+            subindoNivel.play();
             window.alert("Conquista desbloqueada:\n Só demorou um tempinho não é?");
             consquista100Clicks();
         }
@@ -207,6 +213,8 @@ imgCookie.addEventListener("click", function () {
     }
     if (!conquista1000ClicksConquistada) {
         if (pontuacaoAtual >= 1000) {
+            subindoNivel.currentTime = 0;
+            subindoNivel.play();
             window.alert("Conquista desbloqueada:\n Ufa, finalmente!");
             consquista1000Clicks();
         }
@@ -222,10 +230,14 @@ imgCookie.addEventListener("click", function () {
     if (clicks3Ativo == true) {
         clicks3();
     }
-    // verificação da conquista Sem Poderes
-    if (!clicks2Ativo && !clicks3Ativo && conquista1000ClicksConquistada) {
-        window.alert("Conquista desbloqueada:\n O que deu em você?");
-        consquistaSemPoderes();
+    if (!conquistaSemPoderesConquistada) {
+        // verificação da conquista Sem Poderes
+        if (!clicks2Ativo && !clicks3Ativo && conquista1000ClicksConquistada) {
+            subindoNivel.currentTime = 0;
+            subindoNivel.play();
+            window.alert("Conquista desbloqueada:\n O que deu em você?");
+            consquistaSemPoderes();
+        }
     }
 });
 

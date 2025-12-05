@@ -4,6 +4,32 @@
     box-sizing: border-box;
 }
 
+/* Estilo para navegadores WebKit (Chrome, Safari) */
+::-webkit-scrollbar {
+    width: 4px;
+    /* Largura da barra */
+}
+
+::-webkit-scrollbar-track {
+    background: #000000;
+    /* Cor de fundo */
+}
+
+::-webkit-scrollbar-thumb {
+    background: #b6b6b6b3;
+    /* Cor da barra arrastável */
+    border-radius: 10px;
+    /* Cantos arredondados */
+    cursor: pointer;
+}
+
+/* Efeito ao passar o mouse */
+::-webkit-scrollbar-thumb:active {
+    background: #ffffff;
+    cursor: grab;
+}
+
+
 html {
     scroll-behavior: smooth;
 }
@@ -19,6 +45,8 @@ body {
 button {
     cursor: pointer;
 }
+
+button {}
 
 header {
     width: 100%;
@@ -79,6 +107,7 @@ header {
 main {
     background-image: url('https://media.giphy.com/media/k754IRFqfiMi4/giphy.gif');
     background-size: cover;
+    background-position: center;
     width: 100%;
     height: 100%;
     display: flex;
@@ -111,7 +140,7 @@ main .cookie {
     align-items: center;
 }
 
-main img {
+main #imgCookie {
     cursor: pointer;
     width: 200px;
     border-radius: 100%;
@@ -120,7 +149,7 @@ main img {
     transition: all 0.05s ease-in-out;
 }
 
-main img:active {
+main #imgCookie:active {
     width: 250px;
     transition: all 0.1s ease-in-out;
 }
@@ -150,7 +179,7 @@ aside {
     padding: 10px 30px;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     /* Para garantir que o conteúdo fique acima da imagem */
     z-index: 2;
     overflow-y: scroll;
@@ -174,7 +203,7 @@ aside #buttonConquista,
 #fecharInfo {
     background-color: rgba(255, 255, 255, 0.5);
     height: 100px;
-    width: 100%;
+    width: 90%;
     margin: 10px;
     padding: 10px;
     border: 2px solid #0000002f;
@@ -190,8 +219,8 @@ aside #buttonInformacao:hover,
 aside #buttonHabilidade:hover,
 aside #buttonConquista:hover,
 #fecharInfo:hover {
-    background-color: rgba(255, 255, 255, 0.6);
-    width: 90%;
+    background-color: rgba(255, 255, 255, 0.7);
+    width: 100%;
     height: 120px;
     font-size: 45px;
 }
@@ -211,7 +240,6 @@ aside #buttonInformacao,
 
 aside #buttonInformacao:hover,
 #fecharInfo:hover {
-    background-color: rgba(255, 255, 255, 0.6);
     width: 60px;
     height: 60px;
     font-size: 25px;
@@ -233,6 +261,7 @@ aside #buttonInformacao:hover,
     align-items: center;
     backdrop-filter: blur(4px);
     transition: all 1s ease-in-out;
+    z-index: 2;
 }
 
 .abrindoInformacoes {
@@ -259,6 +288,71 @@ h1 {
     display: flex;
     justify-content: end;
     text-align: center;
+}
+
+.configuracoes-descricao {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.configuracoes-descricao h1 {
+    margin: 0;
+}
+
+.configuracoes-descricao span {
+    font-size: 20px;
+}
+
+.configuracoes-descricao input {
+    padding: 0;
+    border-radius: 10px;
+    width: 70%;
+    height: 30px;
+    transition: all 0.5s ease-in-out;
+}
+
+input[type=range] {
+    /*removes default webkit styles*/
+    -webkit-appearance: none;
+}
+
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    border: none;
+    height: 30px;
+    width: 26px;
+    border-radius: 10px;
+    background: rgb(194, 139, 76);
+    cursor: pointer;
+}
+
+input[type=range]::-webkit-slider-thumb:active {
+    background: rgb(146, 101, 50);
+    cursor: grab;
+}
+
+
+input[type=file] {
+    opacity: 0;
+    inset: 0;
+    position: absolute;
+    cursor: alias;
+}
+
+.configuracoes-descricao button {
+    border-radius: 10px;
+    width: 70%;
+    height: 30px;
+    transition: all 0.5s ease-in-out;
+}
+
+.configuracoes-descricao button:hover {
+    background-color: #943939;
+    color: #cfcfcf;
+    transition: all 0.2s ease-in-out;
 }
 
 .informacoes .divX #xConfig,
@@ -341,6 +435,8 @@ aside #pontuacao {
 .codigo {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    text-align: center;
     margin: 10px 0;
 }
 
@@ -350,13 +446,13 @@ input {
     height: 20px;
     margin: 10px 0;
     padding: 0 10px;
+    width: 100%;
 }
 
 form button {
     background-color: rgba(255, 255, 255, 0.5);
     height: 20px;
     width: 100%;
-    margin: 10px;
     padding: 10px;
     border: 2px solid #0000002f;
     border-radius: 10px;
@@ -365,6 +461,11 @@ form button {
     justify-content: center;
     align-items: center;
     transition: all 0.2s ease-in-out;
+}
+
+footer {
+    text-align: center;
+    color: #b6b6b6b3;
 }
 
 @media screen and (max-width: 600px) {
@@ -378,12 +479,23 @@ form button {
     }
 
     .informacoes {
-        left: -150%;
+        /* left: -150%; */
+        left: 0;
+        top: -100%;
         width: 100%;
+        margin: 0;
     }
 
     .abrindoInformacoes {
-        left: -4%;
+        top: 0;
+    }
+
+    aside #buttonInformacao,
+    aside #buttonHabilidade,
+    aside #buttonConquista,
+    #fecharInfo {
+        font-size: 20px;
+        height: 50px;
     }
 
     aside #buttonInformacao:hover,
@@ -391,6 +503,13 @@ form button {
     aside #buttonConquista:hover,
     #fecharInfo:hover {
         font-size: 30px;
+        width: 90%;
+    }
+
+    aside #buttonInformacao:hover,
+    #fecharInfo:hover {
+        width: 50px;
+        height: 50px;
     }
 
     aside .informacoes .habilidade p {
